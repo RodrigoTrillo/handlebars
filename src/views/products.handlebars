@@ -1,0 +1,21 @@
+<div className='card'>
+        <img className='card-image' src={{this.image}} alt={{this.title}} />
+        
+        <div className='card-content'>
+            <h3 className='card-name'>{{this.title}}</h3>
+            <p className='card-tipo'>{{this.category}}</p>
+        </div>
+        <div className='card-footer'>
+            <p className='card-price'>${{price}}</p>
+            <div className="card-cart">
+                
+            </div>
+            <div className='card-stock'><p>stock= {{product.stock}}</p></div>
+        </div>
+        <Link to={`/detalle/${info.id}`} className='card-container'>
+        <button className='icon-btn add-btn'>
+                    <div className='add-icon'></div>
+                    <div className='btn-txt'>Add To Cart</div>
+                </button>
+        </Link>
+    </div>
