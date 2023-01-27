@@ -75,7 +75,7 @@ router.post('/',uploader.array('file'),(req, res)=>{
     return res.status(400).json({message: ' no se cargo'})
   } */
 
-  const {title, img,price,description}= req.body
+ /*  const {title, img,price,description}= req.body
 
 
 
@@ -90,7 +90,7 @@ router.post('/',uploader.array('file'),(req, res)=>{
   product.profile = req.file.path
 
   products.push(product)
-
+ */
   /* const title = req.body.title;
   const img = req.body.img;
   const price = req.body.price;
