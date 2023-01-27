@@ -55,10 +55,27 @@ const products = [
 
 router.get('/',(req, res)=>{
     res.render('products.handlebars',{
-        products:products[0],
+        products:products,
         style:'index.css'
     })
 }) 
+router.getProductForm = (req, res, next)=>{
+  res.render('products.handlebars',{
+    name: 'Prod 5',
+    title:'prod 5',
+    price: 200,
+    stock: 100,
+    img:'url'
+})
+}
 
+router.post('/',(req, res,next)=>{
+  const title = req.body.title;
+  const img = req.body.img;
+  const price = req.body.price;
+  const description= req.body.description;
+
+  const prod = new products(null, title,price,img,description)
+})
 
 module.exports =router

@@ -1,21 +1,49 @@
-<div class='card'>
-        <img class='card-image' src={{products.img}} alt={{products.title}} />
-        
-        <div class='card-content'>
-            <h3 class='card-name'>{{products.title}}</h3>
-            <p class='card-tipo'>{{products.category}}</p>
-        </div>
-        <div class='card-footer'>
-            <p class='card-price'>${{products.price}}</p>
-            <div class="card-cart">
-                
-            </div>
-            <div class='card-stock'><p>stock= {{products.stock}}</p></div>
-        </div>
-        <Link to={`/detalle/${info.id}`} class='card-container'>
-        <button class='icon-btn add-btn'>
-                    <div class='add-icon'></div>
-                    <div class='btn-txt'>Add To Cart</div>
-                </button>
-        </Link>
+<div class="container">
+{{#each products}}
+  <div class="card">
+    <img class="card-image" src={{img}} alt={{title}} />
+    <div class="card-content">
+      <h3 class="card-name">{{title}}</h3>
+      <p class="card-tipo">{{pcategory}}</p>
     </div>
+    <div class="card-footer">
+      <p class="card-price">${{price}}</p>
+      <div class="card-cart">
+
+      </div>
+      <div class="card-stock"><p>stock= {{stock}}</p></div>
+    </div>
+    <Link to="{`" detalle ${info.id}`} class="card-container">
+      <button class="icon-btn add-btn">
+        <div class="add-icon"></div>
+        <div class="btn-txt">Add To Cart</div>
+      </button>
+    </Link>
+  </div>
+{{/each}}
+</div>
+    <div class="formContainer">
+        <h2>Create Product</h2>
+        <form action="/src/products/controller.products.js" method="POST">
+            <div class="formGroup">
+                <label for="title">Tilte</label>
+                <input type="text" id="title" name="title">
+            </div>
+            <div class="formGroup">
+                <label for="price">Price</label>
+                <input type="text" id="price" name="price">
+            </div>
+            <div class="formGroup">
+                <label for="img">Img Url</label>
+                <input type="text" id="img" name="img">
+            </div>
+            <div class="formGroup">
+                <label for="">Description</label>
+                <textarea name="description" id="description" cols="30" rows="10"></textarea>
+            </div>
+            <button class="btn-98" type="submit">Submit</button>
+
+        </form>
+    </div>
+
+
