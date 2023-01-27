@@ -1,4 +1,5 @@
 const {Router} = require('express')
+const uploader = require('../utils')
 
 const router= Router()
 
@@ -69,13 +70,33 @@ router.getProductForm = (req, res, next)=>{
 })
 }
 
-router.post('/',(req, res,next)=>{
-  const title = req.body.title;
+router.post('/',uploader.array('file'),(req, res)=>{
+/*   if (!req.file){
+    return res.status(400).json({message: ' no se cargo'})
+  } */
+
+  const {title, img,price,description}= req.body
+
+
+
+    const product = {
+      title,
+      img,
+      price,
+      description
+    }
+  
+
+  product.profile = req.file.path
+
+  products.push(product)
+
+  /* const title = req.body.title;
   const img = req.body.img;
   const price = req.body.price;
   const description= req.body.description;
 
-  const prod = new products(null, title,price,img,description)
+  const prod = new products(null, title,price,img,description) */
 })
 
 module.exports =router
