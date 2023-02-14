@@ -2,13 +2,11 @@ const express = require('express')
 const handlebars = require('express-handlebars')
 const router = require('./routes')
 const {Server} = require('socket.io')
-const port = 3000
+
 
 const app = express()
 
- const httpServer = app.listen(port, ()=>{
-    console.log(`Server running at ${port}`)
-})
+
 
 const socketServer = new Server(httpServer)
 
